@@ -3,7 +3,7 @@
 - These programs is for playing sounds you record using your PC microphone
 
 - You can play to accsess as below. 
-https://mikatahara.github.io/Pop-Looper/
+https://mikatahara.github.io/readme/Pop-Looper/
 
 <br>
 <img src="_Pop-Looper_.png" width="80%">
