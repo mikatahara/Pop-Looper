@@ -9,7 +9,7 @@ https://mikatahara.github.io/Pop-Looper/
 <img src="readme/_Pop-Looper_.png" width="80%">
 <br>
 
-- push the REC0 button to record sound.
+- push the REC0 button to record sound on first track.
 - Clap your hand
 - The sound is recorded and display right on top window.
 - and the sound is repeatly played.
@@ -17,3 +17,5 @@ https://mikatahara.github.io/Pop-Looper/
 <br>
 <img src="readme/_Pop-Looper_02.png" width="80%">
 <br>
+
+- push the REC1 button to record sound on second track.
