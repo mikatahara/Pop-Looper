@@ -19,3 +19,14 @@ https://mikatahara.github.io/Pop-Looper/
 <br>
 
 - push the REC1 button to record sound on second track.
+
+<br>
+<img src="readme/_Pop-Looper_03.png" width="80%">
+<br>
+
+- push the REC2 button to record sound on 3rd track.
+- push the REC3 button to record sound on 4th track.
+
+<br>
+<img src="readme/_Pop-Looper_04.png" width="80%">
+<br>
