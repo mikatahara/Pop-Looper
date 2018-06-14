@@ -7,6 +7,8 @@ var node = null;
 var mGainW = null;
 var mGainD = null;
 var mReverb = null;
+var mLowpass = null;
+var mLowshelf = null;
 
 var mAudioBuffer= [null,null];
 
@@ -28,6 +30,13 @@ function mAudioInitialize(process){
 	mGainW.gain.value = 0.4;
 	mGainD.gain.value = 1.0;
 	mReverb	= mAudioContext.createConvolver();
+	mLowpass = mAudioContext.createBiquadFilter();
+	mLowpass.type = "lowpass";
+	mLowpass.frequency = 16000;
+	mLowshelf = mAudioContext.createBiquadFilter();
+	mLowshelf.type = "lowshelf";
+	mLowshelf.frequency = 200;
+	mLowshelf.gain = 3;
 
 /* Convolver のインパルス応答のロード*/
 	mloadDogSound(
@@ -59,9 +68,11 @@ function soundThrough() {
 //			splitter.connect(gainR, 1);
 //			gainL.connect(merger, 0, 0)
 //			gainR.connect(merger, 0, 1)
-			node.connect(mReverb);
+			node.connect(mLowshelf);
+			mLowshelf.connect(mLowpass);
+			mLowpass.connect(mReverb);
 			mReverb.connect(mGainW);
-			node.connect(mGainD);
+			mLowpass.connect(mGainD);
 			mGainW.connect(mAudioContext.destination);
 			mGainD.connect(mAudioContext.destination);
 ///			merger.connect(mAudioContext.destination);
