@@ -2,8 +2,10 @@
 
 - These programs is for playing sounds you record using your PC microphone
 
-- You can play to accsess as below. 
+- You can play to accsess as below.<br> 
 https://mikatahara.github.io/Pop-Looper/
+
+- If you have any idea to more fun this application, please let to write to Issues.
 
 <br>
 <img src="readme/_Pop-Looper_.png" width="80%">
@@ -30,3 +32,7 @@ https://mikatahara.github.io/Pop-Looper/
 <br>
 <img src="readme/_Pop-Looper_04.png" width="80%">
 <br>
+
+- You can stop with pushing stop button.
+- As same time all tracks are cleared.
+
