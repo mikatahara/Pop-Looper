@@ -270,8 +270,8 @@ function process(data){
 		ret += v3;
 		dly = 0.8*(mFlwL.fCalc(ret) + mFshL.fCalc(ret));
 		wet = mDly.fAcc(dly);
-		outbufL[i] = dly+0.4*wet;
-		outbufR[i] = dly+0.4*wet;
+		outbufL[i] = dly+0.1*wet;
+		outbufR[i] = dly+0.1*wet;
 
 		samplebuf[0].incCount();
 		samplebuf[1].incCount();
