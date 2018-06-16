@@ -268,7 +268,7 @@ function process(data){
 		ret += v1;
 		ret += v2;
 		ret += v3;
-		dly = 0.8*(mFlwL.fCalc(ret) + mFshL.fCalc(ret));
+		dly = mFlwL.fCalc(mFshL.fCalc(ret));
 		wet = mDly.fAcc(dly);
 		outbufL[i] = dly+0.1*wet;
 		outbufR[i] = dly+0.1*wet;
