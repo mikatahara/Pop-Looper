@@ -46,7 +46,7 @@ function cReverb(){
 	this.DL[3] = new cDelay(881);
 	this.DL[4] = new cDelay(967);
 	this.DL[5] = new cDelay(1721);
-	for(var i=0; i<6; i++) this.DL[i].fSetDT(1.2);
+	for(var i=0; i<6; i++) this.DL[i].fSetDT(0.8);
 }
 
 cReverb.prototype={
