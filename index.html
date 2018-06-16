@@ -35,6 +35,11 @@
 <input type="button" value="Stop" onclick="audioOff()">
 </form>
 
+<form id="button2">
+<input type="button" value="Wav Rec" onclick="startWaveRecord()">
+<input type="button" value="Stop" onclick="stopWaveRecord()">
+</form>
+
 <!--	
 <form method="volume">
 LEFT &nbsp;&nbsp;GAIN: <input type="number" name="left"  step="0.1" min="0.0" max="1.0" value="1.0" onchange="leftGainChange(this.value);"><br>
@@ -62,6 +67,10 @@ RIGHT GAIN: <input type="number" name="right" step="0.1" min="0.0" max="1.0" val
 
 #button {
 	position:absolute; top:450px; left:20px;
+}
+
+#button2 {
+	position:absolute; top:500px; left:520px;
 }
 
 #log {

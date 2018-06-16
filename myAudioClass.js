@@ -41,9 +41,9 @@ function mAudioInitialize(process){
 //	mLowshelf.gain = 3;
 
 /* Convolver のインパルス応答のロード*/
-	mloadDogSound(
-		"https://mikatahara.github.io/1 Halls 11 Gold Hall.1.1.wav"
- 		, 0);
+//	mloadDogSound(
+//		"https://mikatahara.github.io/1 Halls 11 Gold Hall.1.1.wav"
+// 		, 0);
 
 //データ処理関数の定義
 	mNode.onaudioprocess	= process;

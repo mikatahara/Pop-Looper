@@ -3,28 +3,25 @@ var localScriptProcessor = null;
 audioData = []; // ò^âπÉfÅ[É^
 var mCount=0;
 
-function onRecProcess(data)
+function onRecProcess(input,procsize)
 {
-	var procsize = data.inputBuffer.length;
 	var bufferData = new Float32Array(procsize);
 
-	if(mWaveRec){
-		for (var i = 0; i < procsize; i++) {
-			bufferData[i] = input[i];
-		}
-	
-		if(mCount<128){
-			audioData.push(bufferData);
-		} else if(mCount==16){
-			exportWAV(audioData);
-			mWaveRec=0;
-		}
-		mCount++;
+	for (var i = 0; i < procsize; i++) {
+		bufferData[i] = input[i];
 	}
+	
+	if(mCount<1024){
+		audioData.push(bufferData);
+	} else if(mCount==128){
+		exportWAV(audioData);
+		stopWaveRecord();
+	}
+	mCount++;
 };
 
 var exportWAV = function(audioData) {
-	var sampleRate = audioContext.sampleRate;
+	var sampleRate = mAudioContext.sampleRate;
 	var encodeWAV = function(samples, sampleRate) {
 		var buffer = new ArrayBuffer(44 + samples.length * 2);
 		var view = new DataView(buffer);
@@ -76,7 +73,7 @@ var exportWAV = function(audioData) {
 		return samples;
 	};
 
-	var dataview = encodeWAV(mergeBuffers(audioData), audioContext.sampleRate);
+	var dataview = encodeWAV(mergeBuffers(audioData), mAudioContext.sampleRate);
 	var audioBlob = new Blob([dataview], { type: 'audio/wav' });
 
 	download(audioBlob,"test.wav");

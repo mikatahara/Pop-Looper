@@ -13,6 +13,7 @@ var mRecCh=0;
 var mTimerId1=null;
 var mCnt=0;
 var mWaveRec=0;
+var mRecStart=0;
 var mFlwL=null;
 var mFshL=null;
 var mDly=null;
@@ -278,6 +279,10 @@ function process(data){
 		samplebuf[2].incCount();
 		samplebuf[3].incCount();
 	}
+
+	if(mWaveRec&&mRecStart){
+		onRecProcess(outbufL,procsize);
+	}
 }
 
 function timeron()
@@ -308,3 +313,17 @@ function RightGainChange(value){
 	log.innerText +="\n";
 	gainR.gain.value = value;
 }
+
+function startWaveRecord()
+{
+	mRecStart=1;
+}
+
+function stopWaveRecord()
+{
+	exportWAV(audioData);
+	mRecStart=0;
+	mCount=0;
+	audioData = [];
+}
+
