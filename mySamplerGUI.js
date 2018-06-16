@@ -12,6 +12,10 @@ var mRecFlag=0;
 var mRecCh=0;
 var mTimerId1=null;
 var mCnt=0;
+var mWaveRec=0;
+var mFlwL=null;
+var mFshL=null;
+var mDly=null;
 
 var mSecPattern = [
 	[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],
@@ -94,6 +98,13 @@ window.onload = function(){
 /* Sample Buffer */
 	samplebuf = new Array(4);
 	for(var i=0; i<4; i++) samplebuf[i] = new WaveSample();
+
+/* Filter */
+	mFlwL = new cFilter();
+	mFlwL.fSetC(0.92);
+	mFshL = new cFilter();
+	mFshL.fSetC(0.96);
+	mDly = new cReverb();
 }
 
 function mDispcircle(n)
@@ -118,8 +129,6 @@ function mDispcircle(n)
 		fdgC.fDrawArcXY(0.4*mCircle[i][0],0.4*mCircle[i][1],6);
 	}
 }
-
-
 
 function audioOn(nch)
 {
@@ -238,6 +247,7 @@ function process(data){
 			mRecFlag=0;
 			dispWave(mRecCh);
 			timeron();
+			mWaveRec=1;
 		}
 	}
 
@@ -245,17 +255,24 @@ function process(data){
 	var v1=0;
 	var v2=0;
 	var v3=0;
+	var ret=0;
+	var dly=0;
+	var wet=0;
 
 	for(var i=0; i<procsize; i++){ 
 		v0 = samplebuf[0].readSample();
 		v1 = samplebuf[1].readSample();
 		v2 = samplebuf[2].readSample();
 		v3 = samplebuf[3].readSample();
-		outbufL[i]  = v0;
-		outbufL[i] += v1;
-		outbufL[i] += v2;
-		outbufL[i] += v3;
-		outbufR[i]=outbufL[i];
+		ret =  v0;
+		ret += v1;
+		ret += v2;
+		ret += v3;
+		dly = 0.8*(mFlwL.fCalc(ret) + mFshL.fCalc(ret));
+		wet = mDly.fAcc(dly);
+		outbufL[i] = dly+0.4*wet;
+		outbufR[i] = dly+0.4*wet;
+
 		samplebuf[0].incCount();
 		samplebuf[1].incCount();
 		samplebuf[2].incCount();
@@ -265,7 +282,6 @@ function process(data){
 
 function timeron()
 {
-
 	if(mTimerId1!=null) return;
 	mTimerId1=setInterval(function(){
 		if(mSecPattern[0][mCnt]) samplebuf[0].resetCount();
