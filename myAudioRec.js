@@ -76,7 +76,7 @@ var exportWAV = function(audioData) {
 	var dataview = encodeWAV(mergeBuffers(audioData), mAudioContext.sampleRate);
 	var audioBlob = new Blob([dataview], { type: 'audio/wav' });
 
-	download(audioBlob,"test.wav");
+	download(audioBlob,"popLooper.wav");
 
 	var myURL = window.URL || window.webkitURL;
 	var url = myURL.createObjectURL(audioBlob);

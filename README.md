@@ -5,8 +5,6 @@
 - You can play to accsess as below.<br> 
 https://mikatahara.github.io/Pop-Looper/
 
-- If you have any idea to more fun this application, please let to write to Issues.
-
 <br>
 <img src="readme/_Pop-Looper_.png" width="80%">
 <br>
@@ -35,4 +33,8 @@ https://mikatahara.github.io/Pop-Looper/
 
 - You can stop with pushing stop button.
 - As same time all tracks are cleared.
+
+- By pushing Wav Rec Button, you can download wav file of the pop looper sound.
+
+- If you have any idea to more fun this application, please let to write to Issues.
 
