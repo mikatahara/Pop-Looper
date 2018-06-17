@@ -13,6 +13,13 @@ function onRecProcess(input,procsize)
 	
 	if(mCount<1024){
 		audioData.push(bufferData);
+		if(mCount%16==0){
+			var recsec = mCount*procsize/sampleRate*10;
+			var irecsec = Math.floor(recsec)/10;			
+			log.innerText  ="Recording:"
+			log.innerText += irecsec;
+			log.innerText +="sec\n";
+		}
 	} else if(mCount==128){
 		exportWAV(audioData);
 		stopWaveRecord();
