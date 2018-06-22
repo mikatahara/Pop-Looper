@@ -304,9 +304,8 @@ function timeron()
 
 /* -------------------------------------------------------------------------- */
 
-function changeTempo(item)
+function changeTempo(tempo)
 {
-	var tempo = item.value;
 	if(tempo>300 || tempo<60) return;
 
 	if(!mWaveRec) return;
