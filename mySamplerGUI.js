@@ -5,12 +5,13 @@ var fdg3 = null;
 var fdgC = null;
 
 var log = null;
-var sampleRate = null;
+var mSampleRate = null;
 var samplebuf = null;
 
 var mRecFlag=0;
 var mRecCh=0;
 var mTimerId1=null;
+var mBeatx=500;
 var mCnt=0;
 var mWaveRec=0;
 var mRecStart=0;
@@ -141,9 +142,9 @@ function audioOn(nch)
 	mRecCh = nch;
 	mRecFlag = 0;
 
-	sampleRate = mAudioContext.sampleRate;
+	mSampleRate = mAudioContext.sampleRate;
 	log.innerText +="sample rate:"
-	log.innerText += sampleRate;
+	log.innerText += mSampleRate;
 	log.innerText +="\n";
 }
 
@@ -285,6 +286,8 @@ function process(data){
 	}
 }
 
+/* -------------------------------------------------------------------------- */
+
 function timeron()
 {
 	if(mTimerId1!=null) return;
@@ -296,8 +299,27 @@ function timeron()
 		mDispcircle(mCnt);
 		mCnt++;
 		mCnt&=0xF;
-	}, 500 );
+	}, mBeatx );
 }
+
+/* -------------------------------------------------------------------------- */
+
+function changeTempo(item)
+{
+	var tempo = item.value;
+	if(tempo>300 || tempo<60) return;
+
+	if(!mWaveRec) return;
+
+	mBeatx = Math.floor(60000/tempo);
+
+	if(mTimerId1!=null)  clearInterval(mTimerId1);
+	mTimerId1=null;
+
+	timeron();	/* シーケンサープ再生スタート */
+}
+
+/* -------------------------------------------------------------------------- */
 
 
 function leftGainChange(value){
