@@ -107,18 +107,6 @@ window.onload = function(){
 	mFshL = new cFilter();
 	mFshL.fSetC(0.96);
 	mDly = new cReverb();
-
-$(function(){
-	$("input"). keydown(function(e) {
-		if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
-			var tmp = document.getElementById("tempo_id");
-			changeTempo(tmp.value);
-		} else {
-			return true;
-		}
-	});
-});
-
 }
 
 function mDispcircle(n)
