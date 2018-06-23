@@ -45,6 +45,18 @@ var mCircle = [
 	[0.923880, -0.382683],
 ];
 
+
+$(function(){
+	$("input"). keydown(function(e) {
+		if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+			var tmp = document.getElementById("tempo_id");
+			changeTempo(tmp.value);
+		} else {
+			return true;
+		}
+	});
+});
+
 window.onload = function(){
 
 // ページ読み込み時に実行したい処理
