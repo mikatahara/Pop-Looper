@@ -34,6 +34,7 @@ https://mikatahara.github.io/Pop-Looper/
 - You can stop with pushing stop button.
 - As same time all tracks are cleared.
 
+- Tempo Parameter, You can edit the tempo for playing.
 - By pushing Wav Rec Button, you can download wav file of the pop looper sound.
 
 - If you have any idea to more fun this application, please let to write to Issues.
