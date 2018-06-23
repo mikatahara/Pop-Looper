@@ -307,10 +307,9 @@ function timeron()
 function changeTempo(tempo)
 {
 	if(tempo>300 || tempo<60) return;
+	mBeatx = Math.floor(60000/tempo);
 
 	if(!mWaveRec) return;
-
-	mBeatx = Math.floor(60000/tempo);
 
 	if(mTimerId1!=null)  clearInterval(mTimerId1);
 	mTimerId1=null;
