@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="myWavesample.js"></script>
 	<script type="text/javascript" src="myAudioRec.js"></script>
 	<script type="text/javascript" src="myFilter.js"></script>
+	<script type="text/javascript" src="mySeqEdit.js"></script>
 	<script src="https://mikatahara.github.io/drawgraph.js" type="text/javascript"></script>
 	<script src="jquery-1.11.2.min.js" type="text/javascript"></script>
 
@@ -69,23 +70,26 @@ RIGHT GAIN: <input type="number" name="right" step="0.1" min="0.0" max="1.0" val
 #waveshape3 {
 	position:absolute; top:380px; left:480px;
 }
+#step_seq {
+	position:absolute; top:500px; left:480px;
+}
 
 #button {
 	position:absolute; top:450px; left:20px;
 }
 
 #button2 {
-	position:absolute; top:500px; left:520px;
+	position:absolute; top:480px; left:20px;
 }
 
 #log {
-	position:absolute; top:500px; left:20px;
-	width:20em;
-	height:12em;
+	position:absolute; top:520px; left:20px;
+	width:32em;
+	height:6em;
 	margin:.5em 0 .5em 0;
 	padding:.5em;
 	background-color:#dddddd;
-	border:solid 1px #222222;
+//	border:solid 1px #222222;
 	white-space:pre;
 	font-family:Courier New, monospace;
 	font-size:.75em;
@@ -99,8 +103,7 @@ RIGHT GAIN: <input type="number" name="right" step="0.1" min="0.0" max="1.0" val
 <canvas id="waveshape1" width="600" height="100"></canvas>
 <canvas id="waveshape2" width="600" height="100"></canvas>
 <canvas id="waveshape3" width="600" height="100"></canvas>
-
-
+<canvas id="step_seq"   width="800" height="160"></canvas>
 </body>
 
 <!--	-------------------------------------------------------------------- -->
